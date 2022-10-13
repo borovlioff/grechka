@@ -1,0 +1,60 @@
+@use "../../css/breakpoints.scss";
+@use "../../css/color.scss";
+
+.social{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    &__icon{
+        text-align: center;
+
+        &::before{
+            color: color.$def-color;
+        }
+        &:hover{
+            &::before{ color: color.$icon-active;}
+        }
+    }
+
+    @include breakpoints.sm{
+        width: 3rem;
+        &__icon{
+            width: 100%;
+            margin-bottom: 32px;
+
+            &_vk{
+                font-size: 12px;
+            }
+
+            &_facebook{
+                font-size: 18px;
+            }
+
+            &_odnoklassniki{
+                font-size: 22px;
+            }
+        }
+    }
+
+    @include breakpoints.xl{
+        width: auto;
+        bottom: 40px;
+        margin-right: 80px;
+        &__icon{
+           width: auto;
+            margin-left: 40px;
+
+            &_vk{
+                font-size: 16px;
+            }
+
+            &_facebook{
+                font-size: 24px;
+            }
+
+            &_odnoklassniki{
+                font-size: 26px;
+            }
+        }
+    }
+}

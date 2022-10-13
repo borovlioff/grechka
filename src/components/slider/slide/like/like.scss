@@ -1,0 +1,96 @@
+@use "../../../../css/color.scss";
+@use "../../../../css/breakpoints.scss";
+
+.like {
+    &__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      background-color: rgba(153, 153, 153, 0.2);
+  
+      &::before {
+        color: color.$icon-normal;
+      }
+  
+      &:hover {
+        background-color: color.$icon-hover-bg;
+  
+        &::before {
+          color: color.$icon-hover;
+        }
+      }
+  
+      &-active {
+        background-color: transparent;
+  
+        &::before {
+          color: color.$icon-active;
+        }
+  
+        &:hover {
+          background-color: color.$icon-hover-bg;
+  
+          &::before {
+            color: color.$icon-active;
+          }
+        }
+      }
+    }
+  
+    &__text {
+      color: color.$def-color;
+      font-size: 20px;
+      width: 100%;
+      text-align: center;
+    }
+  
+    &__count {
+      padding-left: 5px;
+      color: color.$active;
+    }
+  
+    @include breakpoints.sm {
+      &__icon {
+        height: 54px;
+        width: 54px;
+        margin-bottom: 13px;
+        &::before {
+          font-size: 28px;
+        }
+      }
+      &__text {
+        color: color.$def-color;
+        font-size: 20px;
+        width: 100%;
+        text-align: center;
+      }
+  
+      &__count {
+        padding-left: 5px;
+        color: color.$active;
+      }
+    }
+  
+    @include breakpoints.xl {
+      &__icon {
+        height: 72px;
+        width: 72px;
+        margin-bottom: 13px;
+        &::before {
+          font-size: 38px;
+        }
+      }
+      &__text {
+        color: color.$def-color;
+        font-size: 32px;
+        width: 100%;
+        text-align: center;
+      }
+  
+      &__count {
+        padding-left: 5px;
+        color: color.$active;
+      }
+    }
+  }

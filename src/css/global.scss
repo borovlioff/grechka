@@ -1,0 +1,83 @@
+@use "./breakpoints.scss";
+@use "./color.scss";
+@use "../assets/fonts/icon-grechka/icon-grechka.scss";
+@use "../assets/fonts/Noir-Pro/Noir-Pro.scss";
+
+
+@font-face {
+    font-family: 'grechka';
+    src:  url('../assets/fonts/icon-grechka/grechka.eot?8qx8gc');
+    src:  url('../assets/fonts/icon-grechka/grechka.woff?8qx8gc') format('woff'),
+      url('../assets/fonts/icon-grechka/grechka.eot?8qx8gc#iefix') format('embedded-opentype'),
+      url('../assets/fonts/icon-grechka/grechka.ttf?8qx8gc') format('truetype'),
+      url('../assets/fonts/icon-grechka/grechka.svg?8qx8gc#grechka') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+
+  @font-face{
+    font-family: "Noir-Pro";
+    src: url("../assets/fonts/Noir-Pro/NoirPro-Light.woff2"),
+    url("../assets/fonts/Noir-Pro/NoirPro-Light.woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+    @font-face{
+        font-family: "Noir-Pro";
+        src: url("../assets/fonts/Noir-Pro/NoirPro-BoldItalic.woff2"),
+        url("../assets/fonts/Noir-Pro/NoirPro-BoldItalic.woff");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+
+body{
+    font-family: 'Noir-Pro', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: color.$def-color;
+
+    &._lock{
+        overflow: hidden;
+    }
+}
+
+h1, h2{
+    font-weight: 400;
+}
+
+
+h2{
+    font-size:32px;
+    line-height: 37.5px;
+}
+
+p{
+    font-size: 20px;
+    line-height: 26.5px;
+}
+
+img{
+    width: 100%;
+}
+
+.container{
+    
+    @include breakpoints.xl{
+        max-width: 97%;
+        margin: auto;
+    }
+
+    @include breakpoints.sm{
+        max-width: 96%;
+        margin: auto;
+    }
+
+}
+
+.absolute{
+    position: absolute;
+}

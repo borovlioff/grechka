@@ -1,0 +1,25 @@
+@import "cleanapp.scss";
+@import "global.scss";
+@import "../components/slider/slider.scss";
+@import "../components/social/social.scss";
+
+body{
+    position: relative;
+}
+
+header{
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+article{
+   
+}
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}

@@ -1,0 +1,215 @@
+@use "../../../css/color.scss";
+@use "../../../css/breakpoints.scss";
+
+.slide {
+  $self: &;
+
+  &__header {
+    position: relative;
+  }
+
+  &__title-text {
+    color: color.$header-color;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    opacity: 0;
+    transition: 2s;
+  }
+
+  &__desc-text {
+    color: color.$def-color;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    text-transform: uppercase;
+    white-space: pre-line;
+    opacity: 0;
+    transition: 2s;
+  }
+
+  &__like {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__error {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__error-text {
+    font-size: 132px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    line-height: 100%;
+  }
+
+  &__error-icon {
+    max-width: 953px;
+  }
+
+  &-active {
+    z-index: 999;
+    #{ $self }__title-text {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+
+    #{ $self }__desc-text {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+
+  &-next-animation {
+    animation-name: slideNext;
+    animation-duration: 2s;
+
+    #{ $self }__title-text {
+      
+    }
+
+    #{ $self }__desc-text {
+      
+    }
+  }
+
+  &-prev-animation {
+    animation-name: slidePrev;
+    animation-duration: 2s;
+
+    #{ $self }__title-text {
+      transform: translateX(-20%);
+    }
+
+    #{ $self }__desc-text {
+      
+    }
+  }
+
+  @include breakpoints.sm {
+    background-position-x: 25%;
+    background-size: cover;
+
+    &-active {
+      animation-name: mobilSlide;
+      animation-duration: 1s;
+    }
+
+    &__header {
+    }
+
+    &__title-text {
+      font-size: 32px;
+      line-height: 37.5px;
+      margin-top: 29px;
+      margin-bottom: 41px;
+    }
+
+    &__like {
+      left: calc(50% - 54px);
+      position: absolute;
+      bottom: 4%;
+    }
+
+    &__error {
+      top: 50%;
+    }
+
+    &__error-text {
+      font-size: 32px;
+    }
+
+    &__error-icon {
+      max-width: 70%;
+    }
+  }
+
+  @include breakpoints.xl {
+    background-position-x: 0%;
+    background-size: auto;
+    &__header {
+    }
+
+    &__title-text {
+      font-size: 132px;
+      line-height: 154.69px;
+      margin-top: 15px;
+      margin-bottom: 17px;
+    }
+
+    &__desc-text {
+      padding-right: calc(100% - 500px);
+    }
+
+    &__like {
+      left: calc(50% - 72px);
+      position: absolute;
+      bottom: 4%;
+    }
+
+    &__error {
+      top: 40%;
+    }
+
+    &__error-text {
+      font-size: 132px;
+    }
+
+    &__error-icon {
+      max-width: 953px;
+    }
+  }
+}
+
+@keyframes slideNext {
+  0% {
+    transform: translatex(0%);
+  }
+  50% {
+    transform: translatex(-20%);
+  }
+  100% {
+    transform: translatex(0%);
+  }
+}
+
+@keyframes slidePrev {
+  0% {
+    transform: translatex(0px);
+  }
+  30% {
+    transform: translatex(20%);
+  }
+  100% {
+    transform: translatex(0%);
+  }
+}
+
+@keyframes nextHeader {
+  0% {
+    transform: translatex(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translatex(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes mobilSlide {
+  0% {
+    background-position-x: 100%;
+  }
+  100% {
+    background-position-x: 25%;
+  }
+}

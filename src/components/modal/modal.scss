@@ -1,0 +1,74 @@
+@use "../../css/color.scss";
+@use "../../css/breakpoints.scss";
+
+.modal{
+    $self:&;
+    z-index: 999;
+    position: fixed;
+    background-color: rgba(0,0,0,0.1);
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    transition-duration: 0.3s;
+
+    &__content{
+        position: relative;
+        background-color: #393939;
+        transition: 0.3s;
+        transform: translateY(0%);
+    }
+
+    &__close{
+        position: absolute;
+        color: color.$active;
+        cursor: pointer;
+    }
+
+  
+
+    &_hide{
+        opacity: 0;
+        pointer-events: none;
+        
+
+       #{$self}__content{
+            transform: translateY(100%);
+        }
+    }
+
+    @include breakpoints.sm{
+        align-items: end;
+        &__content{
+            width: 100%;
+            height: 551px;
+            padding: 16px;
+    
+            
+
+           
+        }
+
+        &__close{
+            top: 16px;
+            right: 16px;
+        }
+    }
+
+    @include breakpoints.xl{
+        align-items: center;
+        &__content{
+            width: 543px;
+            height: 470px;
+            padding: 32px;
+
+        }
+        &__close{
+            top: 32px;
+            right: 32px;
+        }
+    }
+}
